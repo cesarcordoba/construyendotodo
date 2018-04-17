@@ -1,0 +1,650 @@
+@font-face
+	font-family FatFrank
+	// font-weight 800
+	src url('../fonts/FatFrank.otf')
+
+@font-face
+	font-family Evolve
+	font-weight 300
+	src url('../fonts/Evolve300.otf')
+
+@font-face
+	font-family Evolve
+	font-weight 400
+	src url('../fonts/Evolve400.otf')
+
+@font-face
+	font-family Evolve
+	font-weight 500
+	src url('../fonts/Evolve500.otf')
+
+@font-face
+	font-family Evolve
+	font-weight 600
+	src url('../fonts/Evolve600.otf')
+
+mobile = "(max-width: 600px)"
+compu = "(min-width: 600px)"
+
+amarillo = #f8c503
+amarilloClaro = #F9D54E
+amarilloSuperObscuro = #786001
+
+azul = #1d232d
+azulgrisaseo = #2b3745
+
+
+gris = #E2E4E9
+grisClaro = #f1f5fe
+
+naranja = rgb(255,171,64)
+
+transition(duracion, delay)
+	-webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	-webkit-transition-delay delay ease-in-out
+	transition-delay delay ease-in-out
+
+animation(animation, duration = 1s, delay = 0s)
+	-webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950) !important
+	animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950) !important
+	-webkit-transition all duration ease-in-out !important
+	-moz-transition all duration ease-in-out !important
+	-o-transition all duration ease-in-out !important
+	transition all duration ease-in-out !important
+	-webkit-transition-delay delay ease-in-out !important
+	transition-delay delay ease-in-out !important
+
+.hidden
+	display none
+
+.todo
+	background linear-gradient(to bottom, white, grisClaro, gris)
+
+main
+	position relative
+
+
+md-expansion-panel
+	background inherit !important
+	opacity 0.9
+	md-expansion-panel-collapsed
+		md-icon
+			margin-right 0
+		.md-title
+			max-width inherit
+
+	.md-expansion-panel-header-container
+		background inherit !important
+		line-height 19px
+
+	md-expansion-panel-content
+		background-color white
+
+	.md-expansion-panel-footer-container
+		background inherit !important
+
+		.md-button
+			border inset
+			height 0px
+
+		md-icon
+			transform scale(1.8) !important
+			color inherit !important
+
+
+header
+	margin 0px
+	background-color rgba(250, 250, 250, .5)
+	position fixed
+	height 60px
+	width 100%
+	z-index 1000
+	.md-button
+		margin 0px
+		md-icon
+			height 60px
+			width 230px
+	.logo
+		.md-button
+			padding 0px
+	.botones
+		margin-right 20px
+		.md-button
+			height 60px
+			border-radius 0px
+			margin 0px
+			padding 0 20px
+			span
+				line-height 60px
+			&.active
+				background-color amarillo
+
+
+footer
+	.texto-izquierda
+		p
+			margin 0px
+			font-size 14px
+			font-family Evolve
+	.starbrand
+		p
+			margin 0px
+			font-size 14px
+			font-family Evolve
+			text-align center
+	.md-button
+		margin 0px
+		md-icon
+			height 60px
+			width 160px
+	.logo
+		.md-button
+			padding 0px
+.home
+	section
+		height 60vh
+		margin 20vh 0
+		.texto
+			height 100%
+			display flex
+			justify-content center
+			align-items center
+			.texto-container
+				width 60%
+				md-icon
+					padding 20px
+					height 40px
+					width 40px
+					background-color amarillo
+				h1
+					background-color azulgrisaseo
+					color white
+					font-family FatFrank
+					margin 0px
+					padding 30px
+					font-size 2vw
+				p
+					font-family Evolve
+					font-size 18px
+				.md-button
+					border 1px solid azul
+					padding 10px 40px
+					border-radius 0px
+		.imagenes
+			display flex
+			justify-content center
+			align-items center
+			.template
+				.imagen
+					width 800px
+			.titulo
+				position absolute
+				bottom 0px
+				font-size 24px
+				color white
+				font-family FatFrank
+				p
+					text-shadow 2px 4px 7px rgba(0,0,0,0.3)
+					font-size 3vw
+
+			.mandar
+				background amarillo
+				position absolute
+				width 118px
+				height 80px
+				opacity 0.8
+				md-icon
+					transform scale(3.5)
+		&.principal
+			height 100vh
+			width 100vw
+			padding 0px
+			margin 0px !important
+			position relative
+			display flex
+			flex-direction row
+			justify-content center
+			.principal-content
+				display flex
+				flex-direction row
+				justify-content center
+				align-items center
+				width 90%
+				position relative
+			.front, .back
+				position absolute
+				width 100%
+				&>div
+					display flex
+					flex-direction flex-start
+					.mensaje-container, .imagen-container
+						width 60%
+						height 100%
+						display flex
+						justify-content center
+						align-items center
+						.mensaje
+							display flex
+							flex-direction column
+							.linea
+								md-icon
+									padding 20px
+									background amarillo
+									height 40px
+									width 40px
+							.strong
+								padding 20px 0
+								strong
+									background-color azulgrisaseo
+									color white
+									font-family FatFrank
+									margin 0px
+									padding 20px
+									font-size 3vw
+							p
+								font-family Evolve
+								font-size 18px
+								width 50%
+						.imagen
+							img
+								width 100%
+							.boton
+								margin 10px 0
+								display flex
+								justify-content flex-end
+								.md-button
+									border 1px solid azul
+									padding 20px 40px
+									border-radius 0px
+			.front
+				z-index 2
+				.front-content
+					justify-content flex-start
+			.back
+				z-index 1
+				.back-content
+					justify-content flex-end
+
+		&.seccion-titulo
+			h1
+				font-size 40px
+.cotizacion
+	height 60vh
+	padding 5vh 0
+
+
+.templates
+	.contenido
+		md-grid-list
+			md-grid-tile
+				background-repeat no-repeat
+				background-size cover
+				background-position center
+
+
+.categoria, .concepto
+	&.ng-enter
+		animation(fadeInLeft) 10s
+	&.ng-leave
+		animation(fadeOutLeft) 1s
+
+.cotizador
+	background linear-gradient(to right, amarillo, amarilloClaro)
+	padding 30px
+	height calc(100vh - 60px)
+	md-card
+		border-radius 15px
+		overflow hidden
+	.templates
+		.md-subheader
+			background-color grisClaro
+			.md-subheader-inner
+				padding 10px
+				.md-subheader-content
+					text-align center
+					color azul
+		.contenido
+			&>.md-button
+				margin 0px
+				min-width 30px
+				border-radius 0px
+				background-color grisClaro
+				md-icon
+					color azul
+					transform scale(1.5)
+				// .prev
+				// .next
+			.templates-container
+				figure
+					display flex
+					flex-direction column
+					slider
+						height calc(100% - 40px)
+					.titulo
+						height 40px
+						display flex
+						align-items center
+						margin 0px
+						width 100%
+						padding 0px
+						border none
+						background-color none
+						white-space inherit
+						h4
+							margin 0px
+							width 100%
+							line-height 11px
+							font-size 11px
+							text-align center
+	.busqueda
+		.md-button
+			margin 0px
+	.categorias
+		overflow hidden
+		md-virtual-repeat-container
+			height calc(90vh - 330px)
+			categoria, concepto
+				md-expansion-panel
+					md-progress-linear
+						position absolute
+						height 30px
+						top 0
+						z-index 1
+						.md-container
+							height 30px
+							background-color azulgrisaseo
+							.md-bar
+								height 30px
+								background-color azul
+					md-expansion-panel-header
+						width 100%
+						.md-title
+							strong
+								background-color white
+								border-radius 50px
+								padding 0px 1px
+								margin 0 5px
+								color azul
+						strong, h3, .md-expansion-panel-icon, .md-title
+							z-index 2
+					md-expansion-panel-collapsed
+						padding 0px
+						display flex
+						min-height 30px
+						flex-direction column
+						md-expansion-panel-header
+							height 30px
+							min-height 30px
+							background azulgrisaseo
+							.md-expansion-panel-header-container
+								min-height 30px
+								.md-title
+									margin 0px
+									font-size 13px
+									color white
+									font-family FatFrank
+
+						md-list
+							padding 0px
+							md-list-item
+								background-color amarilloClaro
+								height 20px
+								p
+									font-size 11px
+					md-expansion-panel-expanded
+						md-expansion-panel-header
+							background-color azul
+							.md-expansion-panel-header-container
+								z-index 2
+								strong
+									padding 1px 5px
+									margin 0 20px
+									background-color white
+									border-radius 50px
+								h3
+									margin 0px
+									font-family FatFrank
+									color white
+						md-expansion-panel-content
+							padding 0px
+							md-list
+								padding 0px
+								md-list-item
+									height 30px
+									min-height 30px
+									.md-mini
+										width 25px
+										height 25px
+										margin 0 10px
+										min-height 25px
+										min-width 25px
+										line-height 25px
+										padding 0px
+										md-icon
+											height 25px
+											width 25px
+											min-height 25px
+											min-width 25px
+											font-size 25px
+											color white
+									p
+										font-size 13px
+										font-family Evolve
+										font-weight 500
+									.md-secondary-container
+										md-input-container
+											margin 0px
+											padding 0 20px
+											border 1px solid black
+											border-radius 50px
+											.md-errors-spacer
+												min-height 0px
+											input
+												border none
+												height 20px
+										.md-button
+											margin 0px 5px
+											border-radius 50px
+											height 20px
+											min-height 20px
+											line-height 20px
+											padding 0 20px
+											min-width 20px
+											span
+												font-size 11px
+											md-icon
+												font-size 20px
+												height 20px
+												width 20px
+									&.bloqueo
+										background-color amarilloClaro
+						md-expansion-panel-footer
+							.md-expansion-panel-footer-container
+								padding 0px
+								min-height 36px
+								.md-button
+									margin 0px
+									border none
+									width 100%
+									height 100%
+									background-color amarillo
+	.control
+		height 10vh
+		.md-button
+			background-color amarillo
+			margin 0px
+			border-radius 0px
+			width 200px
+			height 100%
+
+
+slider
+	height 100%
+	width 100%
+	display flex
+	overflow hidden
+	justify-content center
+	align-items center
+	.slider-container
+		width 100%
+		height 100%
+		position relative
+		.slider
+			position initial
+			overflow hidden
+			&:before
+				content 'cargando'
+				position absolute
+				font-family: 'Material Icons';
+				content: "refresh";
+				-webkit-font-feature-settings: 'liga';
+				left 0
+				right 0
+				margin-left auto
+				margin-right auto
+			.slick-dots
+				padding 0px
+				bottom 0px
+				li button:before
+					content none
+			.slick-arrow
+				z-index 10
+				background-color naranja
+				box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)
+				border-radius 50px
+				&:before
+					color white
+					height 19px
+					width 19px
+					line-height 19px
+					opacity 1
+				&.slick-prev
+					left 15px
+				&.slick-next
+					right 15px
+			.slick-slide
+				height 100%
+				width 100%
+				img
+					width 100%
+
+.md-panel
+	md-card
+		display flex
+		flex-direction row
+		md-card-content
+			max-width 500px
+
+
+.proyectos
+	md-autocomplete
+		height  60px !important
+		md-autocomplete-wrap
+			height 60px !important
+			input
+				height 60px !important
+	padding 10vh 0
+	md-grid-list
+		margin-top 30px
+		md-grid-tile
+			overflow hidden
+			cursor pointer
+			.imagenes, proyecto, .imagen
+				width 100%
+				height 100%
+				background-size cover
+				background-position center
+				background-repeat no-repeat
+			&:hover
+				.imagen
+					transition(500ms, 0)
+					transform scale(1.1)
+
+			md-grid-tile-footer
+				height 45vh
+				p
+					text-align center
+					font-size 24px
+					font-family Evolve
+					font-weight 500
+	.paginacion
+		cl-paging
+			width 100%
+		.md-button
+			margin 0px
+			border-radius 0px
+			&.first, &.last
+				background-color azulgrisaseo
+			&.active
+				background-color amarilloClaro
+
+
+.proyecto
+	margin-top 100px
+	.titulo-container
+		display flex
+		md-icon
+			height 60px
+			width 60px
+			margin 0px
+			background-color amarillo
+			display flex
+			justify-content center
+			align-items center
+			color white
+		.titulo
+			height 40px
+			font-size 30px
+			background-color azulgrisaseo
+			color white
+			padding 10px 20px
+			font-family FatFrank
+	.descripcion
+		.descripcion-content
+			text-align justify
+			padding-top 25px
+			font-size 22px
+			font-family Evolve
+	section.carrousel
+		.carrousel-content
+			.slider
+				.slick-prev slick-arrow
+					background amarillo !important
+				.slick-next slick-arrow
+					background amarillo !important
+
+				.imagenes
+					.imagen
+						display flex
+						justify-content center
+						align-items center
+						width auto
+						img
+							width auto
+				.slick-slide
+					height 60% !important
+
+	.slider-container
+		margin-top 10vh
+		.slider-nav
+			.slick-track
+				.imagenes
+					width 250px !important
+					img
+						height 100px
+						width 100px
+			.slick-slide
+				height inherit !important
+
+	.conceptos
+		display flex
+		flex-direction row
+		md-chip
+			display flex
+			font-size 11px
+			line-height 11px
+			text-align center
+			justify-content center
+			align-items center
+			background amarillo

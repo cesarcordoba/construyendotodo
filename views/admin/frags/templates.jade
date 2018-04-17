@@ -1,0 +1,36 @@
+md-card
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedTemplate" 
+		md-search-text-change="ctrl.BuscarTemplateChange(ctrl.searchTextTemplate)" 
+		md-search-text="ctrl.searchTextTemplate" 
+		md-selected-item-change="ctrl.TemplateSeleccionadoChange(item)" 
+		md-items="item in templates" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Nombre del Template" 
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		md-button.md-raised(md-colors="{background: 'green'}" ng-click="ctrl.templates.nuevo()")
+			md-icon add
+	md-divider
+	md-list
+		md-list-item(ng-repeat="template in ctrl.templates.items | filter : ctrl.searchTextTemplate")
+			.md-list-item-text
+				strong {{template.nombre}}
+			md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+				md-fab-trigger
+					md-button
+						md-icon more_vert
+				md-toolbar
+					md-fab-actions(layout="row")
+						md-button(md-colors="{background: 'green'}" ui-sref="menuProyectos.template({id:template.id})")
+							md-icon edit
+						md-button(md-colors="{background: 'red'}" ng-click="template.eliminar($index)")
+							md-icon delete
+			md-divider
+		cl-paging(cl-pages="ctrl.templates.paginas" cl-steps="4" cl-page-changed="ctrl.templates.cambioPagina()" cl-align="start start" cl-current-page="ctrl.templates.pagina")
+

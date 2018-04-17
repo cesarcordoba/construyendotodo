@@ -1,0 +1,45 @@
+16-1-18 Monica Creacion de proyecto: modelos, rutas, controladores, relaciones, BD.
+16-1-18 Monica Creacion de States, Modulos, Servicios.
+24-1-18 Monica creacion de Controladores y vistas del Admin.
+
+
+
+
+
+
+
+________________________________________________________________________________________________
+
+
+Datos para entender la estructura y flujo del proyecto
+
+
+Concepto envia a la barra selectiva
+	Conceptos -| 	Categorias -|	Templates -|
+
+Proyectos manda a Proyectos
+
+Prospectos manda a la lista de los prospectos que se obtendran al captar gente
+________________________________________________________________________________________________
+
+Vistas y Controladores
+
+Vista Categorias.jade = Controlador categorias.js
+Vista Categoria.jade = Controlador categoria.js
+carpeta dialogs categoria.jade = Controlador  categoria.js //Crea la categoria
+
+Vista Conceptos.jade = Controlador conceptos.js
+Vista Concepto.jade = Controlador concepto.js
+carpeta dialogs Concepto.jade =  Controlador concepto.js // Crea  el concepto con descripcion
+
+
+Vista nuevoProyecto.jade = Controlador nuevoproyecto.js
+Vista Proyectos.jade  = Controlador proyectos.js
+Vista Proyecto.jade	  = Controlador proyecto.js
+
+Vista nuevoTemplate.jade = Controlador  nuevotemplate.js
+Vista Template.jade = controlador template.js
+Vista Templates.jade = controlador templates.js
+
+Vista Prospecto.jade = Controlador prospecto.js
+Vista Cotizador.jade = Controlador cotizador.js //Contiene la barraa selectiva de  conceptos  - categorias y templates

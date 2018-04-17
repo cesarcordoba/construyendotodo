@@ -1,0 +1,129 @@
+md-card
+    md-toolbar
+        .md-toolbar-tools
+            h4 Información del concepto
+    md-card-content
+        md-subheader Información Básica
+    md-divider
+        form.concepto(ng-submit="editarConcepto(concepto)" layout="column")
+            .info(layout="row" layout-xs="column" layout-align="space-between center")
+                md-input-container(flex="40")
+                    md-icon(md-colors="{color: 'amber'}") &#xE873;
+                    label Nombre
+                    input(ng-model="concepto.nombre" )
+                md-input-container(flex="40")
+                    md-icon(md-colors="{color: 'amber'}") bookmark
+                    label Categoria 
+                    md-select(ng-model="concepto.id_categoria" required)
+                        md-option(ng-value="categoria.id" ng-repeat="categoria in categorias") {{categoria.nombre}}
+
+                md-icon(md-colors="{color: 'amber'}") label
+                md-chips(ng-model="ctrl.tags.items"
+                    md-autocomplete-snap
+                    md-transform-chip="ctrl.tags.transformar($chip)"
+                    md-on-remove="ctrl.tags.remover($chip, $index)"
+                    flex="40")
+                    md-autocomplete(
+                        md-selected-item="ctrl.tags.item"
+                        md-selected-item-change="ctrl.tags.seleccion(ctrl.tags.item)"
+                        md-search-text="ctrl.tags.busqueda"
+                        md-items="item in ctrl.tags.filtrar(ctrl.tags.busqueda)"
+                        md-item-text="item.nombre"
+                        placeholder="Tags")
+                        span(md-highlight-text="ctrl.searchText") {{item.nombre}}
+                    md-chip-template
+                        span
+                            strong {{$chip.nombre}}
+            .descripcion-container
+                .titulo(layout="row")
+                    md-icon(md-colors="{color: 'amber'}") &#xe22b;
+                    p Descripción del concepto
+                text-angular(ng-model="concepto.descripcion.descripcion")
+            md-button.guardar(type="submit" md-colors="{background: 'green'}")
+                md-icon save
+
+    md-divider
+        md-subheader Información Complementaria
+        form(ng-submit="crearLimite(limite)" layout-xs="column")
+            .limites(layout="row" )
+                .precio(layout="column" layout-align="center stretch" flex)
+                    md-input-container(flex)
+                        md-icon(md-colors="{color: 'amber'}") attach_money
+                        label Precio
+                        input(ng-model="limite.precio" required)
+                    md-input-container(flex)
+                        md-icon(md-colors="{color: 'amber'}") radio_button_checked
+                        label Medida
+                        md-select(ng-model="limite.id_medida" required)
+                            md-option(ng-repeat="medida in medidas" ng-value="medida.id") {{medida.nombre}}
+                .max-min(layout="column" layout-align="center stretch" flex)
+                    md-input-container(flex)
+                        md-icon(md-colors="{color: 'amber'}") trending_down
+                        label Limite Minimo
+                        input(ng-model="limite.min" required)
+                    md-input-container(flex)
+                        md-icon(md-colors="{color: 'amber'}") trending_up
+                        label Limite Maximo 
+                        input(ng-model="limite.max" required)
+            .botones(layout="row" layout-xs="column" layout-align="center center")
+                md-button(type="submit" md-colors="{background: 'green'}" flex="30")
+                    md-icon save
+                md-button(ng-click="cerrar()" md-colors="{background: 'red'}" flex="30" ng-show="mostrar===true")
+                    md-icon clear
+
+        h3 Limites Actuales
+    md-table-container
+        table(md-table md-row-select multiple)
+            thead(md-head)
+                tr(md-row)
+                    th(md-column md-numeric)
+                        md-icon attach_money
+                        strong Precio
+                    th(md-column md-numeric)
+                        md-icon trending_down
+                        strong Limite Minimo
+                    th(md-column md-numeric)
+                        md-icon trending_up
+                        strong Limite Máximo
+                    th(md-column md-numeri)
+                        md-icon radio_button_checked
+                        strong Medida
+            tbody(md-body)
+                tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="limite in ctrl.limites.items")
+                    td(md-cell) {{limite.precio }}
+                    td(md-cell) {{limite.min }}
+                    td(md-cell) {{limite.max }}
+                    td(md-cell) {{limite.id_medida }}
+                    td(md-cell)
+                        md-button(md-colors="{background: 'green'}" ng-click="editarLimite(limite)")
+                                md-icon edit
+                        md-button(md-colors="{background: 'red'}" ng-click="eliminarLimite(limite,$index)")
+                            md-icon delete
+     md-table-pagination(md-page-select)
+
+
+
+    md-toolbar
+        .md-toolbar-tools
+            h4 Imagen
+    md-card-content
+        form(ng-submit="guardarImagen(imagen)")
+            .imagen-container(layout-align="center center")
+                .dropify-container(ng-init="Dropify()" flex ng-hide="inputImage")
+                    input.dropify(type="file" data-default-file="Imagen del Concepto" ng-model="imagen.imagenconcepto" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+                .croppie-container(flex ng-show="inputImage")
+                    ng-croppie(src="inputImage"
+                        ng-model='imagen.imagenconcepto'
+                        boundry="{ w: 250, h: 250 }"
+                        viewport="{w: 200, h: 200}"
+                        mousezoom="true" 
+                        zoom="true" 
+                        orientation="90"
+                        type="rectangle") 
+            md-button.imagen-button(type="submit" md-colors="{background: 'green'}" flex)
+                md-icon save
+        md-grid-list(md-cols="4" md-row-height="200px")
+            md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in imagenes" style="background-image:url({{imagen.imagen}})")
+                md-grid-tile-footer(layout-align="center center")
+                        md-button(ng-click="eliminarImagen(imagen.id,$index)")
+                            md-icon clear

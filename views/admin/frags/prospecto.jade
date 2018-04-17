@@ -1,0 +1,56 @@
+md-card
+    md-card-content(layout="row")
+        md-icon search
+        md-autocomplete(
+        flex
+        md-selected-item="ctrl.selectedProspectos" 
+        md-search-text-change="ctrl.BuscarProspectosChange(ctrl.searchTextProspectos)" 
+        md-search-text="ctrl.searchTextProspectos" 
+        md-selected-item-change="ctrl.ProspectosSeleccionadoChange(item)" 
+        md-items="item in prospectos" 
+        md-item-text="item.nombre" 
+        md-min-length="0" 
+        placeholder="Nombre de los prospectos"
+        md-menu-class="autocomplete-custom-template")
+            md-item-template
+                span {{item.nombre}}
+
+    md-divider
+
+md-card
+    md-toolbar
+        .md-toolbar-tools
+            h4 Prospectos
+    md-table-container
+        table(md-table md-row-select multiple)
+            thead(md-head)
+                tr(md-row)
+                    th(md-column md-numeric md-order-by="prospecto.createdAt")
+                        md-icon date_range
+                        strong Fecha
+                    th(md-column md-numeric)
+                        md-icon person
+                        strong Nombre
+                    th(md-column md-numeric)
+                        md-icon mail
+                        | E-mail
+                    th(md-column md-numeric)
+                        md-icon message
+                        | Mensaje
+                    th(md-column md-numeri)
+                        md-icon phone
+                        | Telefono
+                    th(md-column md-numeri)
+                        md-icon attach_money
+                        |  Ver Cotización
+            tbody(md-body)
+                tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="prospecto in prospectos")
+                    td(md-cell) {{prospecto.createdAt | date: 'medium' }}
+                    td(md-cell) {{prospecto.nombre }}
+                    td(md-cell) {{prospecto.correo }}
+                    td(md-cell) {{prospecto.mensaje }}
+                    td(md-cell) {{prospecto.telefono }}
+                    td(md-cell)
+                        md-button(md-colors="{background:'blue'}" ng-click="abrirDialog(prospecto)")
+                            md-icon send
+     md-table-pagination(md-page-select)

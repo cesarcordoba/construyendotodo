@@ -1,0 +1,18 @@
+extends ../index
+
+block moreHead
+	script(type="text/javascript" src="js/main/main.states.js")
+	script(type="text/javascript" src="js/main/main.controller.js")
+	link(type="text/css" rel="stylesheet", href="stylus/main.css")
+
+block content
+
+	div.todo(ng-controller="mainCtrl as mainctrl")
+		header
+			include ../partials/nav
+		div.contenedor(layout="row" layout-align="center center")
+			.centro(flex="100")
+				main(ui-view="main" class="page")
+		md-divider
+		footer(layout="row" layout-align="space-around center")
+			include ../partials/footer

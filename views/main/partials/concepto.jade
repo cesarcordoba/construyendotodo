@@ -1,0 +1,18 @@
+md-list-item(ng-class="{'bloqueo' : ctrl.concepto.bloqueo}")
+	md-button.md-fab.md-mini(ng-click="ctrl.ver($event)")
+		md-icon info
+	md-progress-circular(md-mode="indeterminate" md-diameter="20" ng-if="!ctrl.concepto" ng-disabled="ctrl.concepto")
+	p {{ctrl.concepto.nombre}}
+	.md-secondary
+		md-input-container
+			label {{ctrl.concepto.limite[0].Medida.nombre}}
+			input(ng-model="ctrl.cantidad" type="number" step="1" aria-label="cantidad" min="1" pattern="^[0-9]+")
+		md-button(ng-click="ctrl.concepto.bloquear(ctrl.cantidad)" md-colors="ctrl.concepto.bloqueo ? {background : 'red'}: {background : 'green' }" aria-label="{{ctrl.concepto.nombre}}")
+			//- md-icon(ng-if="!ctrl.concepto.bloqueo") lock_open
+			//- md-icon(ng-if="ctrl.concepto.bloqueo") lock_outline
+			div(ng-if="ctrl.concepto.bloqueo")
+				Span Agregado
+			div(ng-if="!ctrl.concepto.bloqueo")
+				Span Agregar
+				md-icon keyboard_arrow_right
+md-divider

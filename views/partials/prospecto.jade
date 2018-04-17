@@ -1,0 +1,19 @@
+.prospecto-content
+    h4 Proporcionanos tus datos,para poder darle seguimiento a tu cotización
+    md-card-content
+        form(ng-submit="nuevoProspecto(prospecto)" layout="column")
+            md-card-content(layout="column")
+                md-input-container
+                    label Nombre
+                    input(ng-model="prospecto.nombre" required)
+                md-input-container
+                    label Correo
+                    input(ng-model="prospecto.correo" required)
+                md-input-container
+                    label Teléfono
+                    input(ng-model="prospecto.telefono" required)
+                md-input-container(flex)
+                    label Mensaje
+                    textarea(ng-model="prospecto.mensaje" md-maxlength="800" rows="5" required)
+            md-button(type="submit")
+                | Enviar

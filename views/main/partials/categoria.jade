@@ -1,0 +1,24 @@
+md-expansion-panel#categoria(md-component-id="{{ctrl.categoria.id}}" ng-class="{ 'bloqueo' : ctrl.categoria.bloqueo } ")
+	md-expansion-panel-collapsed(ng-click="ctrl.categoria.obtenerConceptos()")
+		md-expansion-panel-header
+			.md-title 
+				strong(ng-bind="ctrl.categoria.conceptos.length > 0 ? ctrl.categoria.conceptos.length : ''") 
+				span {{ctrl.categoria.nombre}}
+			md-expansion-panel-icon
+		md-list
+			md-list-item(ng-repeat="concepto in ctrl.categoria.conceptos" ng-if="concepto.bloqueo")
+				.md-list-item-text
+					p {{concepto.nombre}}
+	md-expansion-panel-expanded
+		md-expansion-panel-header(ng-click="$panel.collapse()")
+			strong(ng-bind="ctrl.categoria.conceptos.length > 0 ? ctrl.categoria.conceptos.length : ''") 
+			h3 {{ctrl.categoria.nombre}}
+			md-expansion-panel-icon
+		md-expansion-panel-content
+			md-list
+				.concepto(ng-repeat="concepto in ctrl.categoria.conceptos")
+					concepto(id="concepto.id" conector="ctrl.categoria.bloquear($event)")
+	md-progress-linear(md-mode="indeterminate" ng-if="ctrl.loading" ng-disabled="!ctrl.loading")
+		//- md-expansion-panel-footer
+		//- 	md-button(ng-click="$panel.collapse()")
+		//- 		md-icon keyboard_arrow_up

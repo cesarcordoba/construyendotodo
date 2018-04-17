@@ -1,0 +1,65 @@
+md-card
+	md-toolbar
+		.md-toolbar-tools
+			h4 Información Básica
+	md-card-content
+		form.templete-form(ng-submit="editarTemplate(template)" layout="column")
+			.info(layout="row" layout-xs="column" layout-align="space-between center")
+				md-input-container(flex)
+					md-icon(md-colors="{color: 'amber'}")  &#xE873;
+					label Nombre del Template
+					input(ng-model="template.nombre")
+			.descripcion-container
+				.titulo(layout="row")
+					md-icon(md-colors="{color: 'amber'}") &#xe22b;
+					p Descripción del Template
+				text-angular(ng-model="template.Descripcion.descripcion")
+			md-button.template.info(type="submit" md-colors="{background: 'green'}" )
+				md-icon save
+md-card
+	md-toolbar
+		.md-toolbar-tools
+			h4 Imagenes
+	md-card-content
+		form(ng-submit="guardarImagen(imagen)")
+			.imagen-container(layout-align="center center")
+				.dropify-container(ng-init="Dropify()" flex)
+					input.dropify(type="file" data-default-file="Imagen del Template" ng-model="imagen" base-sixty-four-input maxsize="54836" data-max-file-size="9000K" accept="image/*" style="padding:0px;")
+				
+			md-button.imagen-button(type="submit" md-colors="{background: 'green'}" flex)
+				md-icon save
+		md-divider
+		md-grid-list(md-cols="4" md-row-height="200px")
+			md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in imagenes" style="background-image:url({{imagen.imagen}})")
+				md-grid-tile-footer(layout-align="center center")
+					md-button(ng-click="eliminarImagen(imagen.id,$index)")
+						md-icon clear
+
+	md-toolbar
+		.md-toolbar-tools
+			h4 Unir con Conceptos
+	md-card-content
+		.unir(layout="row" layout-align="center center")
+			.templates(flex="50")
+				h2 Todos los Conceptos
+				md-virtual-repeat-container#vertical-container
+					.repeated-item(layout="row" md-virtual-repeat='item in conceptos' flex)
+						.texto(flex)
+							strong {{item.nombre}}
+						.botones-container(layout-align="end end")
+							md-button.botones(md-colors="{background: 'blue'}" ng-click="enviarAConcepto(item)")
+								md-tooltip(md-direction="top" style="opacity: 1;") Editar
+								md-icon edit
+							md-button.botones(md-colors="{background: 'green'}" ng-click="unirAConcepto(item)")
+								md-tooltip(md-direction="top" style="opacity: 1;") Agregar
+								md-icon fast_forward
+			.lista(flex="50")
+				h2 Conceptos Unidos al Template
+				md-virtual-repeat-container#vertical-container
+					.repeated-item(layout="row" md-virtual-repeat='concepto in conceptito' flex)
+						.texto(flex)
+							strong {{concepto.nombre}}
+						.botones-container(layout-align="end end")
+							md-button.botones(md-colors="{background: 'red'}" ng-click="quitarConcepto(concepto, $index)")
+								md-tooltip(md-direction="top" style="opacity: 1;") Eliminar
+								md-icon delete

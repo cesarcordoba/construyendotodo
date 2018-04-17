@@ -1,0 +1,14 @@
+md-dialog
+	md-toolbar
+		.md-toolbar-tools
+			h4 Nuevo Proyecto
+			span(flex)
+			md-button(ng-click="close()")
+				md-icon clear
+	form.md-padding(layout="row" ng-submit="submit(proyecto)")
+		md-input-container(flex)
+			label Nombre del Proyecto
+			input(ng-model="proyecto.nombre" required)
+		md-button.md-raised(type="submit")
+			md-icon save
+

@@ -1,0 +1,29 @@
+.cotizacion(layout="row" layout-align="center center")
+	.cotizacion-container(flex="80")
+		.cotizacion-content
+			.contenido(layout="row" ng-repeat="cotizacion in ctrl.cotizaciones" layout-align="space-around center")
+				.imagen
+					img(src="{{cotizacion.despues.ImagenesConcepto[0].imagen}}" style="width : auto; height: 200px")
+				.informacion(layout="column")
+					.titulo-container
+						.titulo {{cotizacion.despues.nombre}}
+					p(ng-bind-html="cotizacion.despues.descripcion.descripcion")
+				.cantidad(layout="column")
+					label Cantidad 
+					md-input-container
+						label {{cotizacion.anterior.limite[0].Medida.nombre}}
+						input(ng-model="cotizacion.anterior.cantidad" type="number" step="1" aria-label="cantidad" min="1" pattern="^[0-9]+")
+				.boton
+					md-button(md-colors=" { background : 'red' }" ng-click="ctrl.cotizador.eliminarCotizacion(cotizacion, $index)")
+						md-icon clear
+			md-divider
+			.div(layout="row" layout-align="space-between center")
+				.cuenta(layout="column")
+					h3 Total de la cotización
+					.total(layout="row")
+						md-icon attach_money
+						p {{ctrl.limites[ ctrl.limites.length - 1].total}} MXN
+				.notas
+					p - Los precios de esta cotización son aproximados.
+					p - Toda cotización requiere un levantamiento para verificación de conceptos y medidas.
+					p - Precios mas IVA.

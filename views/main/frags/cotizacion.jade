@@ -1,0 +1,19 @@
+.cotizacion
+	h1 COTIZACION
+	.contenido(layout="row" ng-repeat="cotizacion in ctrl.cotizaciones")
+		md-divider
+		.imagen
+			img(src="{{cotizacion.despues.ImagenesConcepto[0].imagen}}" style="width : auto; height: 200px")
+		.informacion(layout="column" flex)
+			h2{{cotizacion.despues.nombre}}
+			p(ng-bind-html="cotizacion.despues.descripcion.descripcion")
+		.cantidad(flex)
+			label Cantidad
+			input(ng-model="cotizacion.anterior.cantidad" type="number" step="1" aria-label="cantidad")
+			md-button(md-colors=" { background : 'red' }" ng-click="ctrl.cotizador.eliminarCotizacion(cotizacion, $index)")
+				md-icon clear
+	.cuenta(layout="column")
+		h3 Resumen de tu cotización
+		p Total: {{ctrl.limites[ ctrl.limites.length - 1].total}}
+
+		md-button(ng-click="ctrl.cotizador.ventana(cotizacion.anterior.cantidad)") Obtén tu cotizacion!!!

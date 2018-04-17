@@ -1,0 +1,14 @@
+extends ../index
+
+block moreHead
+	script(type="text/javascript" src="js/cotizador2/cotizador.states.js")
+	script(type="text/javascript" src="js/cotizador2/cotizador.controller.js")
+	link(type="text/css" rel="stylesheet", href="stylus/cotizador2.css")
+
+block content
+
+	div.todo(ng-controller="cotizadorCtrl as cotizadorctrl")
+			
+		div.contenedor(layout="row" layout-align="center center")
+			.centro(flex="100")
+				main(ui-view="main" class="page")

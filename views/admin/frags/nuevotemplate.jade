@@ -1,0 +1,14 @@
+div(layout="row" layout-align="center center")
+	div(flex="80")
+		md-card
+			md-toolbar
+				.md-toolbar-tools
+					h4 Template
+			md-card-content
+				form(ng-submit="templatenuevo(template)")
+					div(layout="row" layout-align="center center")
+						md-input-container(flex)
+							label Nombre del Template
+							input(ng-model="template.nombre" required)
+						md-button(type="submit" md-colors="{background: 'green'}")
+							md-icon save

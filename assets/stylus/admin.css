@@ -1,0 +1,104 @@
+.imagen-container .croppie-container {
+  max-height: 40%;
+  width: 20%;
+}
+.imagen-container .dropify-container {
+  width: 27%;
+}
+.imagen-button {
+  margin-top: 3%;
+}
+.template-image .template-container {
+  width: 50%;
+}
+.template-image .template-container .croppie-container {
+  max-height: 40%;
+  width: 45%;
+}
+.template-image .template-container .dropify-container {
+  width: 54%;
+}
+.template-image img {
+  width: 200px;
+  height: 200px;
+}
+.template-image .eliminar-imagen {
+  width: 40px;
+  height: 40px;
+  margin-left: 35px;
+}
+.button-template {
+  margin-top: 3%;
+  width: 100%;
+}
+.button-limites {
+  height: 10%;
+  margin-top: 3%;
+}
+.concepto .descripcion-container text-angular .ta-toolbar,
+.templete-form .descripcion-container text-angular .ta-toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.concepto .descripcion-container text-angular .ta-toolbar .ta-button-group button md-icon,
+.templete-form .descripcion-container text-angular .ta-toolbar .ta-button-group button md-icon {
+  color: #ffbf00;
+}
+.concepto .descripcion-container .titulo md-icon,
+.templete-form .descripcion-container .titulo md-icon {
+  margin-left: 0;
+  margin: 13px;
+}
+.concepto .guardar,
+.templete-form .guardar {
+  width: 10%;
+  margin: 0 auto;
+  margin-top: 13px;
+}
+.guardar {
+  width: 10%;
+  margin: 0 auto;
+}
+md-grid-list md-grid-tile {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.ta-scroll-window > .ta-bind {
+  height: 180px;
+  min-height: inherit;
+  padding: 6px 12px;
+}
+#vertical-container {
+  height: 292px;
+  width: 90%;
+  max-width: 700px;
+  border: 1px solid #808080;
+}
+#vertical-container .repeated-item {
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  height: 40px;
+  padding-top: 10px;
+}
+#vertical-container .repeated-item md-content {
+  margin: 16px;
+}
+#vertical-container .repeated-item md-virtual-repeat-container {
+  border: solid 1px #808080;
+}
+#vertical-container .repeated-item .md-virtual-repeat-container .md-virtual-repeat-offsetter div {
+  padding-left: 16px;
+}
+#vertical-container .repeated-item .md-button {
+  margin: inherit !important;
+  min-height: inherit !important;
+  min-width: inherit !important;
+}
+#vertical-container .repeated-item .md-button tooltip {
+  opacity: 1;
+}
+.cotizacion-admin .md-button {
+  background: #f00;
+}

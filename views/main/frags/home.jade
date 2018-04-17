@@ -1,0 +1,74 @@
+.home
+	section.principal
+		.principal-content
+			.front
+				.front-content
+					.mensaje-container
+						.mensaje
+							.linea
+								md-icon(md-svg-icon="img/budget.svg")
+							.strong
+								strong Construye lo que deseas
+							.strong
+								strong Cotizalo ahora
+							.linea
+								p Utiliza nuestro cotizador para obtener un presupuesto de lo que quieras construir
+			.back
+				.back-content
+					.imagen-container
+						.imagen
+							.imagen-content
+								img(src="img/cotizador.png")
+							.boton
+								md-button(href="cotizador2" hide-sm hide-xs) Ir al cotizador
+	section.albanileria(layout="row" layout-xs="column" layout-align="center center")
+		.albanileria-content(flex="90" layout="row" layout-xs="column")
+			.slider-albanileria(layout="row" flex layout-xs="column")
+				.imagenes(ng-repeat='imagen in albanileria')
+					md-button.mandar(ng-click="mover(imagen.Template[0].id)")
+						md-icon chevron_right
+					.imagen
+						proyecto2(id="imagen.Template[0].id")
+					.titulo
+						p {{imagen.Template[0].nombre}}
+			.texto(flex="40")
+				.texto-container
+					md-icon(md-svg-icon="img/iconos/1.svg")
+					h1 {{servicios[0].nombre}}	
+					p Es el arte de construcción, edificación y fabricación de todo tipo de estructuras hechas de ladrillos, cemento, cal, pasta, arena y grava. Pueden ser bardas , casas, edificios, bodegas, etc.
+					md-button(ui-sref ="proyectos")  ver todos
+	section.mantenimiento(layout="row" layout-align="center center")
+		.mantenimiento-content(flex="90" layout="row")
+			.texto(flex="40")
+				.texto-container
+					md-icon(md-svg-icon="img/iconos/2.svg")
+					h1 {{servicios[1].nombre}}
+					p Es la renovación o remodelación de alguna estructura. Puede ser preventivo o correctivo, por ejemplo, aplicación de pintura, humedad en muros, impermeabilizaciones, fontanería o cambio de pisos.
+					md-button(ui-sref ="proyectos") ver todos
+			.slider-mantenimiento(layout="row" flex)
+				.imagenes(ng-repeat='imagen in mantenimiento')
+					md-button.mandar(ng-click="mover(imagen.Template[0].id)")
+						md-icon chevron_right
+					.imagen
+						proyecto2(id="imagen.Template[0].id")
+					.titulo
+						p {{imagen.Template[0].nombre}}
+	section.diseno(layout="row" layout-align="center center")
+		.diseno-content(flex="90" layout="row")
+			.slider-diseno(layout="row" flex)
+				.imagenes(ng-repeat='imagen in diseno')
+					.imagen-container
+					md-button.mandar(ng-click="mover(imagen.Template[0].id)")
+						md-icon chevron_right
+					.imagen
+						proyecto2(id="imagen.Template[0].id")
+					.titulo
+						p {{imagen.Template[0].nombre}}
+			.texto(flex="40")
+				.texto-container
+						md-icon(md-svg-icon="img/iconos/3.svg")
+						h1 {{servicios[2].nombre}}
+						p La creación y modelación de algún proyecto arquitectónico o estructural para la construcción, por ejemplo, Planos y renders para edificios, casas o estructuras metálicas.
+						md-button(ui-sref ="proyectos") ver todos
+				
+	

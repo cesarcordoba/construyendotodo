@@ -1,0 +1,6 @@
+.info
+    md-card
+        img(src="{{imagen.imagen}}" ng-repeat="imagen in imagenes" style="width : auto; height: 200px")
+        md-card-content
+            h4 {{ctrl.concepto.nombre}}
+            p(ng-bind-html="ctrl.concepto.descripcion.descripcion")

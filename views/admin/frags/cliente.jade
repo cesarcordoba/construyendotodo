@@ -1,0 +1,14 @@
+md-card
+	md-toolbar
+		.md-toolbar-tools
+			h4 Información Básica
+	md-card-content
+		.cliente(layout="row" layout-xs="column")
+			.info-container
+				form(ng-submit="editarCliente(cliente)")
+					md-input-container
+						md-icon(md-colors="{color: 'amber'}") &#xE873;
+						label Nombre
+						input(ng-model="cliente.nombre" )
+					md-button.guardar(type="submit" md-colors="{background: 'green'}")
+						md-icon save

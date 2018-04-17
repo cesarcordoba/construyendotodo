@@ -1,0 +1,24 @@
+.proyecto(layout="row" layout-align="center center" ng-repeat="template in proyectos")
+	.proyecto-container(flex="80")
+		.titulo-container
+			md-icon done
+			.titulo {{template.nombre}}
+		.descripcion
+			.descripcion-content(ng-bind-html="template.descripcion.Descripcion.descripcion")
+		section.carrousel(layout="row" layout-align="center center")
+			.carrousel-content(flex="80" layout="row")
+				.slider(layout="row" flex)
+					.imagenes(ng-repeat='imagen in template.imagenes')
+						.imagen
+							img(src="{{imagen}}")		
+		.slider-container
+			.slider-nav
+				.imagenes(ng-repeat='imagen in template.imagenes')
+					img(src="{{imagen}}")
+
+		h2 Trabajos realizados
+		.conceptos
+			md-chips(ng-repeat="concepto in template.conceptos")
+				md-chip {{concepto.nombre}}
+	md-divider
+		

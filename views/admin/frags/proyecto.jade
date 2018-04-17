@@ -1,0 +1,85 @@
+md-card
+	md-toolbar
+		.md-toolbar-tools
+			h4 Información Básica del Proyecto
+	md-card-content
+		form.proyecto(ng-submit="editarProyecto(proyecto)" layout="column")
+			.info(layout="row" layout-xs="column" layout-align="space-between center")
+				md-input-container(flex="40")
+					md-icon(md-colors="{color: 'amber'}") &#xE873;
+					label Nombre
+					input(ng-model="proyecto.nombre" )
+				md-input-container(flex="40")
+					md-icon(md-colors="{color: 'amber'}") bookmark
+					label Servicio 
+					md-select(ng-model="proyecto.servicio[0].id" required)
+						md-option(ng-value="servicio.id" ng-repeat="servicio in servicios") {{servicio.nombre}}
+			md-button.guardar(type="submit" md-colors="{background: 'green'}")
+				md-icon save
+
+	md-toolbar
+		.md-toolbar-tools
+			h4 Unir con Templates
+	md-card-content
+		.unir(layout="row" layout-align="center center")
+			.templates(flex="50")
+				h2 Todos los Templates
+				md-virtual-repeat-container#vertical-container
+					.repeated-item(layout="row" md-virtual-repeat='item in templates' flex)
+						.texto(flex)
+							strong {{item.nombre}}
+						.botones-container(layout-align="end end")
+							md-button.botones(md-colors="{background: 'blue'}" ng-click="enviarATemplate(item)")
+								md-tooltip Editar
+								md-icon edit
+							md-button.botones(md-colors="{background: 'green'}" ng-click="unirATemplate(item)")
+								md-tooltip Agregar
+								md-icon fast_forward
+			.lista(flex="50")
+				h2 Templates Unidos al Proyecto
+				md-virtual-repeat-container#vertical-container
+					.repeated-item(layout="row" md-virtual-repeat='template in templecito' flex)
+						.texto(flex)
+							strong {{template.nombre}}
+						.botones-container(layout-align="end end")
+							md-button.botones(md-colors="{background: 'red'}" ng-click="quitarTemplate(template, $index)")
+								md-tooltip Eliminar
+								md-icon delete
+	md-toolbar
+		.md-toolbar-tools
+			h4 Agregar Cliente
+	md-card-content
+		.cliente-busqueda(layout="row" layout-align="center center")
+			md-icon search
+			md-autocomplete(flex
+				md-selected-item="ctrl.cliente.item"
+				md-selected-item-change="ctrl.cliente.seleccion(item)"
+				md-search-text="ctrl.cliente.busqueda"
+				md-search-text-change="ctrl.cliente.buscar(ctrl.cliente.busqueda)"
+				md-items="item in ctrl.cliente.filtrar(ctrl.cliente.busqueda)"
+				md-item-text="item.nombre"
+				md-min-length="0"
+				placeholder="Agregar a un proyecto")
+				md-item-template
+					span {{item.nombre}}
+				md-not-found
+					span Crear "{{ctrl.cliente.busqueda}}"
+					md-button(ng-click="ctrl.cliente.crear(ctrl.cliente.busqueda)")
+						md-icon add
+		md-divider
+		md-list
+			md-list-item(ng-repeat="cliente in clientes")
+				.md-list-item-text
+					strong {{clientes[0].cliente.nombre}}
+				md-fab-toolbar(md-open="false" count="0" md-direction="left" flex)
+					md-fab-trigger
+						md-button
+							md-icon more_vert
+					md-toolbar
+						md-fab-actions(layout="row")
+							md-button(md-colors="{background: 'green'}" ui-sref="cliente({id:cliente.id})")
+								md-icon edit
+							md-button(md-colors="{background: 'red'}" ng-click="eliminarCliente(cliente,$index)")
+								md-icon clear
+			md-divider
+	

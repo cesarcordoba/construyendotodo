@@ -1,0 +1,27 @@
+.proyectos
+	section.busqueda(layout="row")
+		md-autocomplete(flex
+			md-selected-item="ctrl.buscador.item"
+			md-selected-item-change="ctrl.buscador.seleccion(item)"
+			md-search-text="ctrl.buscador.busqueda"
+			md-search-text-change="ctrl.buscador.buscar(ctrl.buscador.busqueda)"
+			md-items="item in ctrl.buscador.filtrar(ctrl.buscador.busqueda)"
+			md-item-text="item.nombre"
+			md-min-length="0"
+			placeholder="Buscar...")
+			md-item-template
+				span {{item.nombre}}
+		md-button(ng-click="ctrl.proyectos.obtener()")
+			md-icon loop
+	md-grid-list(md-cols="4" md-row-height="45vh" md-gutter="5px" md-cols-xs="1" md-cols-md="2")
+		md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="proyecto in ctrl.proyectos.items" ng-click="mover(proyecto.id)")
+			.imagenes
+				proyecto(id="proyecto.Template[0].id")
+			md-grid-tile-footer(layout-align="center center")
+					p {{proyecto.nombre}}
+	.paginacion(layout="row")
+		//- md-button(ng-click="ctrl.proyectos.anterior()" ng-if="ctrl.proyectos.pagina !==1" flex)
+		//- 	md-icon navigate_before
+		//- md-button(ng-click="ctrl.proyectos.siguiente()" ng-if="ctrl.proyectos.pagina === ctrl.proyectos.pagina" flex)
+		//- 	md-icon navigate_next
+		cl-paging(cl-pages="ctrl.proyectos.paginas" cl-steps="4" cl-page-changed="ctrl.proyectos.obtener()" cl-align="start start" cl-current-page="ctrl.proyectos.pagina")

@@ -1,0 +1,40 @@
+md-card
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedConcepto" 
+		md-search-text-change="ctrl.BuscarConceptoChange(ctrl.searchTextConcepto)" 
+		md-search-text="ctrl.searchTextConcepto" 
+		md-selected-item-change="ctrl.ConceptoSeleccionadoChange(item)" 
+		md-items="item in conceptos" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Nombre del Concepto" 
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		md-button.md-raised(md-colors="{background: 'green'}" ng-click="ctrl.conceptos.nuevo()")
+			md-icon add
+	md-divider
+	md-list
+		md-list-item(ng-repeat="concepto in ctrl.conceptos.conceptos | filter : ctrl.searchTextConcepto")
+			.md-list-item-text
+				strong {{concepto.nombre}}
+			md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+				md-fab-trigger
+					md-button
+						md-icon more_vert
+				md-toolbar
+					md-fab-actions(layout="row")
+						md-button(md-colors="{background: 'green'}" ui-sref="menuProyectos.concepto({id:concepto.id})")
+							md-icon edit
+						md-button(md-colors="{background: 'red'}" ng-click="concepto.eliminar($index)")
+							md-icon delete
+			md-divider
+	h3(style="text-align: center") Pagina: {{ctrl.conceptos.pagina}}
+	.paginacion(layout="row")
+		md-button(ng-click="ctrl.conceptos.anterior()" ng-if="ctrl.conceptos.pagina !==1" flex)
+			md-icon navigate_before
+		md-button(ng-click="ctrl.conceptos.siguiente()" ng-if="ctrl.conceptos.pagina === ctrl.conceptos.pagina" flex)
+			md-icon navigate_next

@@ -1,0 +1,14 @@
+md-dialog
+	md-toolbar
+		.md-toolbar-tools
+			h4 Nuevo Concepto
+			span(flex)
+			md-button(ng-click="close()")
+				md-icon clear
+	form.md-padding(layout="row" ng-submit="submit(concepto)")
+		md-input-container(flex)
+			label Nombre
+			input(ng-model="concepto.nombre" required)
+		md-button.md-raised(type="submit")
+			md-icon add
+

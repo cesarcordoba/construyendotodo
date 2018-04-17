@@ -1,0 +1,603 @@
+@font-face {
+  font-family: FatFrank;
+  src: url("../fonts/FatFrank.otf");
+}
+@font-face {
+  font-family: Evolve;
+  font-weight: 300;
+  src: url("../fonts/Evolve300.otf");
+}
+@font-face {
+  font-family: Evolve;
+  font-weight: 400;
+  src: url("../fonts/Evolve400.otf");
+}
+@font-face {
+  font-family: Evolve;
+  font-weight: 500;
+  src: url("../fonts/Evolve500.otf");
+}
+@font-face {
+  font-family: Evolve;
+  font-weight: 600;
+  src: url("../fonts/Evolve600.otf");
+}
+.hidden {
+  display: none;
+}
+.todo {
+  background: linear-gradient(to bottom, #fff, #f1f5fe, #e2e4e9);
+}
+main {
+  position: relative;
+}
+header {
+  margin: 0px;
+  background-color: rgba(250,250,250,0.5);
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  z-index: 1000;
+}
+header .md-button {
+  margin: 0px;
+}
+header .md-button md-icon {
+  height: 60px;
+  width: 230px;
+}
+header .logo .md-button {
+  padding: 0px;
+}
+header .botones {
+  margin-right: 20px;
+}
+header .botones .md-button {
+  height: 60px;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0 20px;
+}
+header .botones .md-button span {
+  line-height: 60px;
+}
+header .botones .md-button.active {
+  background-color: #f8c503;
+}
+md-autocomplete {
+  height: 60px !important;
+}
+md-autocomplete md-autocomplete-wrap {
+  height: 60px !important;
+}
+md-autocomplete md-autocomplete-wrap input {
+  height: 60px !important;
+}
+md-expansion-panel {
+  background: inherit !important;
+  opacity: 0.9;
+}
+md-expansion-panel md-expansion-panel-collapsed md-icon {
+  margin-right: 0;
+}
+md-expansion-panel md-expansion-panel-collapsed .md-title {
+  max-width: inherit;
+}
+md-expansion-panel .md-expansion-panel-header-container {
+  background: inherit !important;
+  line-height: 19px;
+}
+md-expansion-panel md-expansion-panel-content {
+  background-color: #fff;
+}
+md-expansion-panel .md-expansion-panel-footer-container {
+  background: inherit !important;
+}
+md-expansion-panel .md-expansion-panel-footer-container .md-button {
+  border: inset;
+  height: 0px;
+}
+md-expansion-panel .md-expansion-panel-footer-container md-icon {
+  transform: scale(1.8) !important;
+  color: inherit !important;
+}
+md-dialog {
+  width: 28vw !important;
+  background-color: rgba(255,255,255,0.9);
+}
+.prospecto-content h4 {
+  background-color: #2b3745;
+  color: #fff;
+  font-family: FatFrank;
+  font-size: 22px;
+  text-align: center;
+  padding: 20px;
+}
+.prospecto-content md-card-content form {
+  margin: 20px;
+}
+.prospecto-content md-card-content form .md-button {
+  background: #f8c503;
+}
+.prospecto-content md-card-content form md-card-content md-input-container {
+  margin: 0px !important;
+}
+.cotizacion {
+  height: 100vh;
+  padding: 5vh 0;
+}
+.templates .contenido md-grid-list md-grid-tile {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.categoria.ng-enter,
+.concepto.ng-enter {
+  -webkit-animation: fadeInLeft 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) !important;
+  animation: fadeInLeft 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) !important;
+  -webkit-transition: all 1s ease-in-out !important;
+  -moz-transition: all 1s ease-in-out !important;
+  -o-transition: all 1s ease-in-out !important;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 1s ease-in-out;
+  transition-delay: 1s ease-in-out;
+  -webkit-transition-delay: 0s ease-in-out !important;
+  transition-delay: 0s ease-in-out !important;
+}
+.categoria.ng-leave,
+.concepto.ng-leave {
+  -webkit-animation: fadeOutLeft 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) !important;
+  animation: fadeOutLeft 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) !important;
+  -webkit-transition: all 1s ease-in-out !important;
+  -moz-transition: all 1s ease-in-out !important;
+  -o-transition: all 1s ease-in-out !important;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 1s ease-in-out;
+  transition-delay: 1s ease-in-out;
+  -webkit-transition-delay: 0s ease-in-out !important;
+  transition-delay: 0s ease-in-out !important;
+}
+.cotizador {
+  background: linear-gradient(to right, #f8c503, #f9d54e);
+  padding: 30px;
+  height: calc(100vh - 60px);
+}
+.cotizador md-card {
+  border-radius: 15px;
+  overflow: hidden;
+}
+.cotizador .templates .md-subheader {
+  background-color: #f1f5fe;
+}
+.cotizador .templates .md-subheader .md-subheader-inner {
+  padding: 10px;
+}
+.cotizador .templates .md-subheader .md-subheader-inner .md-subheader-content {
+  text-align: center;
+  color: #1d232d;
+}
+.cotizador .templates .contenido>.md-button {
+  margin: 0px;
+  min-width: 30px;
+  border-radius: 0px;
+  background-color: #f1f5fe;
+}
+.cotizador .templates .contenido>.md-button md-icon {
+  color: #1d232d;
+  transform: scale(1.5);
+}
+.cotizador .templates .contenido .templates-container figure {
+  display: flex;
+  flex-direction: column;
+}
+.cotizador .templates .contenido .templates-container figure slider {
+  height: calc(100% - 40px);
+}
+.cotizador .templates .contenido .templates-container figure .titulo {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  width: 100%;
+  padding: 0px;
+  border: none;
+  background-color: none;
+  white-space: inherit;
+}
+.cotizador .templates .contenido .templates-container figure .titulo h4 {
+  margin: 0px;
+  width: 100%;
+  line-height: 11px;
+  font-size: 11px;
+  text-align: center;
+}
+.cotizador .busqueda .md-button {
+  margin: 0px;
+}
+.cotizador .categorias {
+  overflow: hidden;
+}
+.cotizador .categorias md-virtual-repeat-container {
+  height: calc(90vh - 330px);
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-progress-linear,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-progress-linear {
+  position: absolute;
+  height: 30px;
+  top: 0;
+  z-index: 1;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-progress-linear .md-container,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-progress-linear .md-container {
+  height: 30px;
+  background-color: #2b3745;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-progress-linear .md-container .md-bar,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-progress-linear .md-container .md-bar {
+  height: 30px;
+  background-color: #1d232d;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-header,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-header {
+  width: 100%;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-header .md-title strong,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-header .md-title strong {
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 0px 1px;
+  margin: 0 5px;
+  color: #1d232d;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-header strong,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-header strong,
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-header h3,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-header h3,
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-header .md-expansion-panel-icon,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-header .md-expansion-panel-icon,
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-header .md-title,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-header .md-title {
+  z-index: 2;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-collapsed,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-collapsed {
+  padding: 0px;
+  display: flex;
+  min-height: 30px;
+  flex-direction: column;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-collapsed md-expansion-panel-header,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-collapsed md-expansion-panel-header {
+  height: 30px;
+  min-height: 30px;
+  background: #2b3745;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-collapsed md-expansion-panel-header .md-expansion-panel-header-container,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-collapsed md-expansion-panel-header .md-expansion-panel-header-container {
+  min-height: 30px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-collapsed md-expansion-panel-header .md-expansion-panel-header-container .md-title,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-collapsed md-expansion-panel-header .md-expansion-panel-header-container .md-title {
+  margin: 0px;
+  font-size: 13px;
+  color: #fff;
+  font-family: FatFrank;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-collapsed md-list,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-collapsed md-list {
+  padding: 0px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-collapsed md-list md-list-item,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-collapsed md-list md-list-item {
+  background-color: #f9d54e;
+  height: 20px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-collapsed md-list md-list-item p,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-collapsed md-list md-list-item p {
+  font-size: 11px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-header,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-header {
+  background-color: #1d232d;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-header .md-expansion-panel-header-container,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-header .md-expansion-panel-header-container {
+  z-index: 2;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-header .md-expansion-panel-header-container strong,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-header .md-expansion-panel-header-container strong {
+  padding: 1px 5px;
+  margin: 0 20px;
+  background-color: #fff;
+  border-radius: 50px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-header .md-expansion-panel-header-container h3,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-header .md-expansion-panel-header-container h3 {
+  margin: 0px;
+  font-family: FatFrank;
+  color: #fff;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content {
+  padding: 0px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list {
+  padding: 0px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item {
+  height: 30px;
+  min-height: 30px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-mini,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-mini {
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+  min-height: 25px;
+  min-width: 25px;
+  line-height: 25px;
+  padding: 0px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-mini md-icon,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-mini md-icon {
+  height: 25px;
+  width: 25px;
+  min-height: 25px;
+  min-width: 25px;
+  font-size: 25px;
+  color: #fff;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item p,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item p {
+  font-size: 13px;
+  font-family: Evolve;
+  font-weight: 500;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container label,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container label {
+  font-size: 19px;
+  padding: 7px 9vw;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container md-input-container,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container md-input-container {
+  margin: 0px;
+  padding: 0 20px;
+  border: 1px solid #000;
+  border-radius: 50px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container md-input-container .md-errors-spacer,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container md-input-container input,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container md-input-container input {
+  border: none;
+  height: 20px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container .md-button,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container .md-button {
+  margin: 0px 5px;
+  border-radius: 50px;
+  height: 20px;
+  min-height: 20px;
+  line-height: 20px;
+  padding: 0 20px;
+  min-width: 20px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container .md-button span,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container .md-button span {
+  font-size: 11px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container .md-button md-icon,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item .md-secondary-container .md-button md-icon {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item.bloqueo,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-content md-list md-list-item.bloqueo {
+  background-color: #f9d54e;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-footer .md-expansion-panel-footer-container,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-footer .md-expansion-panel-footer-container {
+  padding: 0px;
+  min-height: 36px;
+}
+.cotizador .categorias md-virtual-repeat-container categoria md-expansion-panel md-expansion-panel-expanded md-expansion-panel-footer .md-expansion-panel-footer-container .md-button,
+.cotizador .categorias md-virtual-repeat-container concepto md-expansion-panel md-expansion-panel-expanded md-expansion-panel-footer .md-expansion-panel-footer-container .md-button {
+  margin: 0px;
+  border: none;
+  width: 100%;
+  height: 100%;
+  background-color: #f8c503;
+}
+.cotizador .control {
+  height: 9vh;
+}
+.cotizador .control .instrucciones {
+  padding: 0 3vw;
+  justify-content: center;
+}
+.cotizador .control .instrucciones p {
+  margin: 0px;
+  font-size: 14px;
+  font-family: Evolve;
+}
+.cotizador .control .md-button {
+  background-color: #f8c503;
+  margin: 0px;
+  border-radius: 0px;
+  width: 200px;
+  height: 100%;
+}
+slider {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+slider .slider-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+slider .slider-container .slider {
+  position: initial;
+  overflow: hidden;
+}
+slider .slider-container .slider:before {
+  content: 'cargando';
+  position: absolute;
+  font-family: 'Material Icons';
+  content: "refresh";
+  -webkit-font-feature-settings: 'liga';
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+slider .slider-container .slider .slick-dots {
+  padding: 0px;
+  bottom: 0px;
+}
+slider .slider-container .slider .slick-dots li button:before {
+  content: none;
+}
+slider .slider-container .slider .slick-arrow {
+  z-index: 10;
+  background-color: #ffab40;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+  border-radius: 50px;
+}
+slider .slider-container .slider .slick-arrow:before {
+  color: #fff;
+  height: 19px;
+  width: 19px;
+  line-height: 19px;
+  opacity: 1;
+}
+slider .slider-container .slider .slick-arrow.slick-prev {
+  left: 15px;
+}
+slider .slider-container .slider .slick-arrow.slick-next {
+  right: 15px;
+}
+slider .slider-container .slider .slick-slide {
+  height: 100%;
+  width: 100%;
+}
+slider .slider-container .slider .slick-slide img {
+  width: 100%;
+}
+.md-panel md-card {
+  display: flex;
+  flex-direction: row;
+}
+.md-panel md-card md-card-content {
+  max-width: 500px;
+}
+.cotizacion {
+  margin-top: 60px;
+}
+.cotizacion .contenido .imagen {
+  height: 200px;
+  width: 200px;
+}
+.cotizacion .contenido .informacion {
+  width: 690px;
+}
+.cotizacion .contenido .informacion .titulo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cotizacion .contenido .informacion .titulo-container .titulo {
+  height: 40px;
+  font-size: 30px;
+  background-color: #2b3745;
+  color: #fff;
+  padding: 10px 20px;
+  font-family: FatFrank;
+  text-align: center;
+}
+.cotizacion .contenido .informacion p {
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  font-family: Evolve;
+  font-weight: 500;
+}
+.cotizacion .contenido .cantidad {
+  width: 150px;
+}
+.cotizacion .contenido .cantidad label {
+  text-align: center;
+  font-family: Evolve;
+  font-size: 17px;
+}
+.cotizacion .contenido .cantidad md-input-container {
+  display: flex;
+  lex-direction: row-reverse;
+  margin: 0px;
+  padding: 0 20px;
+  border: 1px solid #000;
+  border-radius: 50px;
+}
+.cotizacion .contenido .cantidad md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+.cotizacion .contenido .cantidad md-input-container label {
+  text-align: center;
+  font-family: Evolve;
+  font-size: 17px;
+  position: relative;
+}
+.cotizacion .contenido .cantidad md-input-container input {
+  border: none;
+  height: 20px;
+}
+.cotizacion .contenido .boton {
+  padding-top: 18px;
+}
+.cotizacion .contenido .boton .md-button {
+  margin: 0px 5px;
+  border-radius: 50px;
+  height: 22px;
+  min-height: 20px;
+  line-height: 20px;
+  padding: 0 20px;
+  min-width: 20px;
+}
+.cotizacion .div {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.cotizacion .div .cuenta {
+  align-items: flex-end;
+}
+.cotizacion .div .cuenta h3 {
+  height: 0px;
+  font-size: 31px;
+  font-family: FatFrank;
+}
+.cotizacion .div .cuenta .total p {
+  font-size: 20px;
+  font-family: Evolve;
+}
+.cotizacion .div .notas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+.cotizacion .div .notas p {
+  margin: 0;
+  font-size: 14px;
+  font-family: Evolve;
+}

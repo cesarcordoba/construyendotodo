@@ -1,0 +1,41 @@
+md-card
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedCliente" 
+		md-search-text-change="ctrl.BuscarClienteChange(ctrl.searchTextCliente)" 
+		md-search-text="ctrl.searchTextCliente" 
+		md-selected-item-change="ctrl.ClienteSeleccionadoChange(item)" 
+		md-items="item in clientes" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Nombre del Cliente" 
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		md-button.md-raised(md-colors="{background: 'green'}" ng-click="ctrl.clientes.nuevo()")
+			md-icon add
+	md-divider
+	md-list
+		md-list-item(ng-repeat="cliente in ctrl.clientes.items | filter : ctrl.searchTextCliente")
+			.md-list-item-text
+				strong {{cliente.nombre}}
+			md-fab-toolbar(md-open="false" count="0" md-direction="left" flex)
+				md-fab-trigger
+					md-button
+						md-icon more_vert
+				md-toolbar
+					md-fab-actions(layout="row")
+						md-button(md-colors="{background: 'green'}" ui-sref="cliente({id:cliente.id})")
+							md-icon edit
+						md-button(md-colors="{background: 'red'}" ng-click=" cliente.eliminar($index)")
+							md-icon clear
+			md-divider
+		cl-paging(cl-pages="ctrl.clientes.paginas" cl-steps="4" cl-page-changed="ctrl.clientes.cambioPagina()" cl-align="start start" cl-current-page="ctrl.clientes.pagina")
+
+
+
+
+
+

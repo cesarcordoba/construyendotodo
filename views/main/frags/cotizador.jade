@@ -1,0 +1,46 @@
+.cotizador
+	md-card(md-whiteframe="5")
+		section.templates
+			md-subheader Cotizador
+			.contenido(layout="row")
+				md-button.prev
+					md-icon navigate_before
+				.templates-container(flex) 
+					md-grid-list(md-cols="5" md-row-height="20vh")
+						md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="template in ctrl.templates.items" style="background-image:url({{imagen.imagen}}")
+							slider(id="template.id")
+							md-button.titulo(ng-click="template.obtenerConConcepto()")
+								h4 {{template.nombre}}
+				md-button.next
+					md-icon navigate_next
+		md-divider
+		section.busqueda(layout="row")
+			md-button(ng-click="ctrl.buscador.obtener()")
+				md-icon loop
+			md-autocomplete(flex
+				md-selected-item="ctrl.buscador.item"
+				md-selected-item-change="ctrl.buscador.seleccion(item)"
+				md-search-text="ctrl.buscador.busqueda"
+				md-search-text-change="ctrl.buscador.buscar(ctrl.buscador.busqueda)"
+				md-items="item in ctrl.buscador.filtrar(ctrl.buscador.busqueda)"
+				md-item-text="item.nombre"
+				md-min-length="0"
+				placeholder="Buscar...")
+				md-item-template
+					span {{item.nombre}}
+			md-button(ng-click="ctrl.expandir()")
+				md-icon(style="transform : rotate(270deg)") first_page
+			md-button(ng-click="ctrl.colapsar()")
+				md-icon(style="transform : rotate(90deg)") first_page
+			
+		md-progress-linear(md-mode="indeterminate" ng-if="ctrl.buscador.loading" ng-disabled="!ctrl.buscador.loading")
+		md-divider
+		section.categorias
+			md-virtual-repeat-container
+				md-expansion-panel-group(md-component-id="panelGroup" multiple)
+					.categoria(ng-repeat="categoria in ctrl.categorias")
+						categoria(conceptitos="categoria.conceptos" id="categoria.id" conector="ctrl.buscador.recibo($event, id, cantidad, idConcepto)")
+
+		md-divider
+		section.control(layout="row" layout-align="end center")
+			md-button(ng-click="ctrl.buscador.enviarCotizacion()") Realizar Cotizacion!!!

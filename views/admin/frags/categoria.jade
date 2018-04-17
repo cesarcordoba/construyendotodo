@@ -1,0 +1,18 @@
+md-card
+    md-toolbar
+        .md-toolbar-tools
+            h4 Información Básica
+    md-card-content
+        form.categoria(ng-submit="editarCategoria(categoria)" layout="column")
+            .info(layout="row" layout-xs="column" layout-align="space-between center")
+                md-input-container(flex="40")
+                    md-icon(md-colors="{color: 'amber'}") &#xE873;
+                    label Nombre
+                    input(ng-model="categoria.nombre") 
+                md-input-container(flex="40")
+                    md-icon(md-colors="{color: 'amber'}") bookmark
+                    label Servicio
+                    md-select(ng-model="categoria.id_servicio" required)
+                        md-option(ng-value="servicio.id" ng-repeat="servicio in servicios") {{servicio.nombre}}
+            md-button(type="submit" md-colors="{background: 'green'}")
+                md-icon save

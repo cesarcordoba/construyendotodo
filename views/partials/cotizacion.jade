@@ -1,0 +1,27 @@
+.cotizacion-admin
+    md-toolbar
+        .md-toolbar-tools
+            h4 Cotizacion de {{nombre}}
+    md-table-container
+        table(md-table md-row-select multiple)
+            thead(md-head)
+                tr(md-row)
+                    th(md-column md-numeric)
+                        md-icon format_list_numbered
+                        | Cantidad
+                    th(md-column md-numeric)
+                        md-icon timelapse
+                        | Medida
+                    th(md-column md-numeric)
+                        md-icon  radio_button_checked
+                        | Concepto
+            tbody(md-body)
+                tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="cotizacion in cotizaciones")
+                    td(md-cell) {{cotizacion.cantidad }}
+                    td(md-cell) {{cotizacion.concepto.Limite[0].Medida.nombre}}
+                    td(md-cell) {{cotizacion.concepto.nombre}}
+    
+    md-button(ng-click="cerrar()")
+        | Cerrar
+
+

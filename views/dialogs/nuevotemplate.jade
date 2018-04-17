@@ -1,0 +1,14 @@
+md-dialog
+	md-toolbar
+		.md-toolbar-tools
+			h4 Nuevo Template
+			span(flex)
+			md-button(ng-click="close()")
+				md-icon clear
+	form.md-padding(layout="row" ng-submit="submit(template)")
+		md-input-container(flex)
+			label Nombre del Template
+			input(ng-model="template.nombre" required)
+		md-button.md-raised(type="submit")
+			md-icon save
+
